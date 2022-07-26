@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+/*--------------------------------
+base style
+---------------------------------*/
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+a {
+  transition: color .3s;
+}
+
+a:hover {
+  color: #6667ab;
+}
+
+/*--------------------------------
+header
+---------------------------------*/
+
+.headerInner {
+  width: min(92%, 960px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.gnav {
+  display: none;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  background-color: #333;
+}
+
+.gnav.is-open {
+  display: block;
+}
+
+.gnav__list {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gnav__item {
+  color: #fff;
+}
+
+/* gnavBtn */
+.gnavBtn {
+  z-index: 100;
+  cursor: pointer;
+  width: 100px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+}
+
+.gnavBtn__bar {
+position: relative;
+}
+.gnavBtn__bar,
+.gnavBtn__bar::before,
+.gnavBtn__bar::after {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 2px;
+  background-color: #333;
+  transition: .3s;
+}
+
+.gnavBtn__bar::before {
+  position: absolute;
+  top: -10px;
+  /* background-color: orange; */
+}
+
+.gnavBtn__bar::after {
+  position: absolute;
+  bottom: -10px;
+  /* background-color: lightblue; */
+}
+
+.gnavBtn__bar.is-open {
+  background-color: rgba(255, 255, 255, 0);
+}
+.gnavBtn__bar.is-open::before {
+  top: 0;
+  transform: rotate(-30deg);
+  background-color: #fff;
+}
+
+.gnavBtn__bar.is-open::after {
+  bottom: 0;
+  transform: rotate(30deg);
+  background-color: #fff;
+}
+
